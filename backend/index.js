@@ -15,8 +15,13 @@ const uri = process.env.MONGO_URL;
 
 const app = express();
 
-app.use(cors());
-app.use(bodyParser.json());
+app.use(cors(
+  {
+    origin:["https://deploy-mern-1whq.vercel.app"],
+    methods:["POST","GET"],
+    credentials:true
+));
+
 
 // app.get("/addHoldings", async (req, res) => {
 //   let tempHoldings = [
